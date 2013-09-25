@@ -1,4 +1,4 @@
-var ARGUMENTS_WRONG = 'arguments must be three,ex userObj, options, cb';
+var ARGUMENTS_WRONG = 'arguments must be 3';
 var WRONG_USERID = 'wrong userid';
 var WRONG_MOBILE = 'wrong mobile';
 var WRONG_NAME = 'name needed';
@@ -36,6 +36,7 @@ userBl.registUser = function(userObj, options, cb){
 }
 
 userBl.getUserInfo = function(userid, options, cb){
+	if(arguments.length !== 3) return cb(ARGUMENTS_WRONG);
 	if(!/\w{16,16}/.test(userObj.userid)) return cb(WRONG_USERID);
 
 	sdkDl.request({

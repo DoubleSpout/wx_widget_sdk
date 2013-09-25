@@ -1,4 +1,5 @@
 {
 	"defaultWidgetHost":"127.0.0.1:8080",
-	"defaultVersion":"v1"
+	"defaultVersion":"v1",
+	"defaultPoolSize":50
 }
