@@ -1,0 +1,44 @@
+{
+  "name": "wx_widget_sdk",
+  "version": "0.0.1",
+  "main": "index.js",
+  "description": "widget sdk",
+  "keywords": [
+    "widget",
+    "server"
+  ],
+  "author": {
+    "name": "doublespout",
+    "email": "snoopyxdy@163.com"
+  },
+  "homepage": "https://github.com/DoubleSpout/wx_widget_sdk",
+  "bugs": {
+    "url": "https://github.com/DoubleSpout/wx_widget_sdk/issues",
+    "email": "snoopyxdy@163.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DoubleSpout/wx_widget_sdk.git"
+  },
+
+  "scripts": {
+    "test": "node ./test/main_test.js"
+  },
+  "os": [
+    "macos",
+    "linux",
+    "darwin",
+    "win32"
+  ],
+  "dependencies": {
+       "async":"0.2.9",
+       "request":"2.27.0",
+       "mocha":"1.13.0",
+       "should":"1.3.0",
+       "blanket":"1.1.5",
+       "muk":"0.3.1"
+   },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
