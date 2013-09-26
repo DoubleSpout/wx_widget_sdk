@@ -1,7 +1,8 @@
 var ARGUMENTS_WRONG = 'arguments must be 3';
-var ARGUMENTS_WRONG2 = 'arguments must be 4';
+var ARGUMENTS_WRONG2 = 'arguments must be 5';
 var VOTEID_ERROR = 'voteid error';
 var USERID_ERROR = 'user id error';
+var GROUPID_ERROR = 'groupid id error';
 
 var sdkDl = require('../dl/sdkDl.js')
 var voteBl = {
@@ -27,8 +28,8 @@ voteBl.getVote = function(id, cb){
 		}, {"id":id}, options, cb);
 }
 
-voteBl.createVote = function(userid, voteid, options, cb){
-	if(arguments.length !== 4) return cb(ARGUMENTS_WRONG2);
+voteBl.createVote = function(userid, voteid, ip, options, cb){
+	if(arguments.length !== 5) return cb(ARGUMENTS_WRONG2);
 
 	if(!/\w{16,16}/.test(userid)){
 		return cb(USERID_ERROR)
@@ -41,7 +42,24 @@ voteBl.createVote = function(userid, voteid, options, cb){
 			"url":options.version + voteBl.getUserInfoUrl, 
 			"method": voteBl.getUserInfoMethod, 
 			"host": options.widgetHost
-		}, {"userid":userid, "voteid":voteid}, options, cb);
+		}, {"userid":userid, "voteid":voteid, "ip":ip||null}, options, cb);
+}
+
+voteBl.getUserVoteByGroup = function(userid, groupid, options, cb){
+	if(arguments.length !== 4) return cb(ARGUMENTS_WRONG);
+
+	if(!/\w{16,16}/.test(userid)){
+		return cb(USERID_ERROR)
+	}
+	if(!/\w{16,16}/.test(groupid)){
+		return cb(GROUPID_ERROR)
+	}
+
+	sdkDl.request({
+			"url":options.version + voteBl.getUserInfoUrl, 
+			"method": voteBl.getUserInfoMethod, 
+			"host": options.widgetHost
+		}, {"userid":userid, "groupid":groupid}, options, cb);
 }
 
 
