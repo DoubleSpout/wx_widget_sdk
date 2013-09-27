@@ -1,5 +1,8 @@
 #wx_widget_sdk
 ================
+#安装方法：
+		npm imstall wx_widget_sdk
+
 #使用方法：
 ##初始化：
 		var sdk = require('wx_widget_sdk');
