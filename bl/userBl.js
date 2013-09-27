@@ -1,8 +1,8 @@
 var ARGUMENTS_WRONG = 'arguments must be 3';
-var WRONG_USERID = 'wrong userid';
+var WRONG_USERID = 'wrong appuserid';
 var WRONG_MOBILE = 'wrong mobile';
 var WRONG_NAME = 'name needed';
-var WRONG_IP = 'name needed';
+var WRONG_IP = 'wrong ip';
 
 var sdkDl = require('../dl/sdkDl.js')
 var userBl = {
@@ -24,12 +24,13 @@ userBl.registUser = function(userObj, options, cb){
 	if(arguments.length !== 3) return cb(ARGUMENTS_WRONG);
 
 	if(!userObj.name) return cb(WRONG_NAME);
-	if(userObj.userid && !/\w{16,16}/.test(userObj.userid)) return cb(WRONG_USERID);
-	if(userObj.mobile && !/\d{11,11}/.test(userObj.mobile)) return cb(WRONG_MOBILE);
-	if(userObj.regIp && !/\d+\.\d+\.\d+\.\d+/.test(userObj.regIp)) return cb(WRONG_IP);
+	if(!userObj.appuserid) return cb(WRONG_USERID);
+
+	if(userObj.mobile && !/^\d{11,11}$/.test(userObj.mobile)) return cb(WRONG_MOBILE);
+	if(userObj.regip && !/\d+\.\d+\.\d+\.\d+/.test(userObj.regip)) return cb(WRONG_IP);
 
 	sdkDl.request({
-			"url":options.version + userBl.registUserUrl, 
+			"url":'/'+options.version + userBl.registUserUrl, 
 			"method": userBl.registUserMethod, 
 			"host": options.widgetHost
 		}, userObj, options, cb);
@@ -37,13 +38,13 @@ userBl.registUser = function(userObj, options, cb){
 
 userBl.getUserInfo = function(userid, options, cb){
 	if(arguments.length !== 3) return cb(ARGUMENTS_WRONG);
-	if(!/\w{16,16}/.test(userObj.userid)) return cb(WRONG_USERID);
+	if(!userid) return cb(WRONG_USERID);
 
 	sdkDl.request({
-			"url":options.version + userBl.getUserInfoUrl, 
+			"url":'/'+options.version + userBl.getUserInfoUrl, 
 			"method": userBl.getUserInfoMethod, 
 			"host": options.widgetHost
-		}, {"userid":userid}, options, cb);
+		}, {"appuserid":userid}, options, cb);
 }
 
 
