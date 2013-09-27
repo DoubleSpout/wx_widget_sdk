@@ -379,12 +379,12 @@ describe('sdkDl api', function(){
 
 	describe('request test get', function(){
 		before(function(){
-			muk(sdkRequest, 'do', function(opts, cb) {
+			muk(sdkRequest, 'doReq', function(opts, cb) {
 				should.equal(opts.headers["Content-Length"], "8");
-				should.equal(opts.method, "GET");
-				should.equal(opts.qs, "timestamp=1234567890&clientid=222222222222222212345678&param=aaa&sign=8ffc9b89d1354a77b367101df2ab2af2");
-				should.equal(opts.uri, "http://127.0.0.1/test/test");
+				should.equal(opts.method, "get");
+				should.equal(opts.uri, "http://127.0.0.1/test/test?timestamp=1234567890&clientid=222222222222222212345678&param=aaa&sign=8ffc9b89d1354a77b367101df2ab2af2");
 				should.equal(opts.timeout, 1000*10);
+
 				cb(null, 'ok')
   			});
 		})	
@@ -403,6 +403,7 @@ describe('sdkDl api', function(){
 			var options = {clientKey:"1234567890123456789012"}
 
 			sdkDl.request(reqObj, data, options, function(err,res){
+
 				should.not.exist(err);
 				should.equal(res,"ok");
 			});
@@ -418,14 +419,14 @@ describe('sdkDl api', function(){
 
 describe('request test post', function(){
 		before(function(){
-			muk(sdkRequest, 'do', function(opts, cb) {
+			muk(sdkRequest, 'doReq', function(opts, cb) {
 				var data = {
 					"timestamp":"1234567890",
 					"clientid":"222222222222222212345678",
 					"param":"aaa",
 					"sign":"8ffc9b89d1354a77b367101df2ab2af2"
 				}
-				should.equal(opts.method, "POST");
+				should.equal(opts.method, "post");
 				should.equal(opts.headers["Content-Length"], "8");
 				should.equal(JSON.stringify(opts.form),JSON.stringify(data))
 				should.equal(opts.uri, "http://127.0.0.1/test/test");
