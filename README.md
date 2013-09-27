@@ -1,4 +1,4 @@
-#wx_widget_sdk
+#wx_widget_sdk[![Build Status](https://travis-ci.org/DoubleSpout/wx_widget_sdk.png?branch=master)](https://travis-ci.org/DoubleSpout/wx_widget_sdk)
 ================
 #安装方法：
 		npm imstall wx_widget_sdk
