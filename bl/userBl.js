@@ -4,7 +4,8 @@ var WRONG_MOBILE = 'wrong mobile';
 var WRONG_NAME = 'name needed';
 var WRONG_IP = 'wrong ip';
 
-var sdkDl = require('../dl/sdkDl.js')
+var sdkDl = require('../dl/sdkDl.js');
+var utils = require('./sdkUtils.js')
 var userBl = {
 	registUserUrl:'/registUser',
 	registUserMethod:'post',
@@ -25,6 +26,9 @@ userBl.registUser = function(userObj, options, cb){
 
 	if(!userObj.name) return cb(WRONG_NAME);
 	if(!userObj.appuserid) return cb(WRONG_USERID);
+
+	userObj.name = utils.filterXss(userObj.name);//过滤xss攻击
+	userObj.appuserid = utils.filterXss(userObj.appuserid);
 
 	if(userObj.mobile && !/^\d{11,11}$/.test(userObj.mobile)) return cb(WRONG_MOBILE);
 	if(userObj.regip && !/\d+\.\d+\.\d+\.\d+/.test(userObj.regip)) return cb(WRONG_IP);
