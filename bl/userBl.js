@@ -32,6 +32,8 @@ userBl.registUser = function(userObj, options, cb){
 
 	if(userObj.mobile && !/^\d{11,11}$/.test(userObj.mobile)) return cb(WRONG_MOBILE);
 	if(userObj.regip && !/\d+\.\d+\.\d+\.\d+/.test(userObj.regip)) return cb(WRONG_IP);
+	
+	userObj.agent = userObj.agent || '';
 
 	sdkDl.request({
 			"url":'/'+options.version + userBl.registUserUrl, 

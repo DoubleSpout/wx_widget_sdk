@@ -50,4 +50,4 @@
 		})
 
 #测试命令：
-node ./test/run.js -D
+node ./test/run.js 
