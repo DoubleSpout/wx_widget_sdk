@@ -21,7 +21,7 @@
     "url": "https://github.com/DoubleSpout/wx_widget_sdk.git"
   },
   "scripts": {
-    "test": "node ./test/run.js -D",
+    "test": "node -D ./test/run.js",
     "blanket": { "pattern": "./bl"}
   },
   "os": [
