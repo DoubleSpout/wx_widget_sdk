@@ -1,6 +1,6 @@
 {
   "name": "wx_widget_sdk",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "main": "index.js",
   "description": "widget sdk",
   "keywords": [
