@@ -26,8 +26,10 @@ userBl.registUser = function(userObj, options, cb){
 
 	//if(!userObj.name) return cb(WRONG_NAME);
 	if(!userObj.appuserid) return cb(WRONG_USERID);
-
-	userObj.name = utils.filterXss(userObj.name);//过滤xss攻击
+	if(userObj.name){
+		userObj.name = utils.filterXss(userObj.name);//过滤xss攻击
+	}
+	
 	userObj.appuserid = utils.filterXss(userObj.appuserid);
 
 	if(userObj.mobile && !/^\d{11,11}$/.test(userObj.mobile)) return cb(WRONG_MOBILE);
