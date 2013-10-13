@@ -41,7 +41,7 @@ describe('sdkIns api', function(){
 
 
 describe('registUser api', function(){
-	describe('name needed', function(){
+/*	describe('name needed', function(){
 		it('should do work', function(){
 			var uobj = {
 				name:"",
@@ -54,7 +54,7 @@ describe('registUser api', function(){
 			})
 		})
 	})
-
+*/
 	describe('name needed', function(){
 		it('should do work', function(){
 			var uobj = {
