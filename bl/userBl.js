@@ -24,7 +24,7 @@ userObj:{
 userBl.registUser = function(userObj, options, cb){
 	if(arguments.length !== 3) return cb(ARGUMENTS_WRONG);
 
-	if(!userObj.name) return cb(WRONG_NAME);
+	//if(!userObj.name) return cb(WRONG_NAME);
 	if(!userObj.appuserid) return cb(WRONG_USERID);
 
 	userObj.name = utils.filterXss(userObj.name);//过滤xss攻击
