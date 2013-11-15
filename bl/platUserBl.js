@@ -28,6 +28,7 @@ Bl.registPlatUser = function(uobj, options, cb){
 	if(!uobj || 'object' !== typeof uobj){
 		return cb(UOBJ_ERROR)
 	}
+	
 	var data = uobj;
 	sdkDl.request({
 			"url":'/'+options.version + Bl.registPlatUserUrl, 
@@ -40,7 +41,7 @@ Bl.registPlatUser = function(uobj, options, cb){
 Bl.getPlatUserInfoByAppUserId = function(appuid, options, cb){
 	if(arguments.length !== 5) return cb(ARGUMENTS_WRONG2);
 
-	var data = {"appuserid":appuid,}
+	var data = {"appuserid":appuid}
 	sdkDl.request({
 			"url":'/'+options.version + Bl.getPlatUserInfoByAppUserIdUrl, 
 			"method": Bl.getPlatUserInfoByAppUserIdMethod, 

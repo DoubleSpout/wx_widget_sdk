@@ -457,4 +457,25 @@ describe('request test post', function(){
 			muk.restore();
 		})
 	})
+
+
+//plat user
+
+
+	describe('user object error', function(){
+		it('user object error', function(){
+			var uobj = "";
+			sdkIns.registPlatUser(uobj, function(err,res){
+				should.equal(err,"user object error");
+			})
+		})
+	})
+
+
+
 })
+
+
+
+
+
