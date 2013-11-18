@@ -89,7 +89,7 @@ Bl.platUserLogin = function(mobile, pwd, options, cb){
 
 
 //get user by token
-Bl.platUserLogin = function(token, options, cb){
+Bl.getPlatUserInfoByToken = function(token, options, cb){
 	if(arguments.length !== 3) return cb(ARGUMENTS_WRONG);
 
 	var data = {"token":token}
