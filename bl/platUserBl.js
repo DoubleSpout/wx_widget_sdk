@@ -39,7 +39,7 @@ Bl.registPlatUser = function(uobj, options, cb){
 
 //getPlatUserInfoByAppUserId
 Bl.getPlatUserInfoByAppUserId = function(appuid, options, cb){
-	if(arguments.length !== 5) return cb(ARGUMENTS_WRONG2);
+	if(arguments.length !== 3) return cb(ARGUMENTS_WRONG);
 
 	var data = {"appuserid":appuid}
 	sdkDl.request({
