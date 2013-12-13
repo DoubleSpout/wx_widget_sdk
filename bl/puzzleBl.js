@@ -62,7 +62,7 @@ puzzleBl.answerPuzzle = function(puzzleid, appuserid, recordid, questionid, key,
 	if(!/^\w{24,24}$/.test(questionid)){
 		return cb(QUESTION_ERROR)
 	}
-	if(!key)){
+	if(!key){
 		return cb(KEY_ERROR)
 	}
 
@@ -146,7 +146,7 @@ puzzleBl.obtainPrize = function(puzzleid, appuseruid, recordid, recordip, prizei
 	
 	var data = {
 		"puzzleid":puzzleid,
-		"appuseruid":appuseruid
+		"appuseruid":appuseruid,
 		"recordid":recordid,
 		"recordip":recordip,
 		"prizeid":prizeid,
