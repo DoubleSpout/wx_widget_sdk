@@ -30,6 +30,12 @@ var puzzleBl = {
 	getUserPrizeRecordUrl:'/getUserPrizeRecord',
 	getUserPrizeRecordMethod:'get',
 
+
+	getUserPuzzleRecordUrl:'/getUserPuzzleRecord',
+	getUserPuzzleRecordMethod:'get',
+
+
+
 }
 
 puzzleBl.getPuzzle = function(puzzleid, appuserid, cb){
@@ -128,7 +134,7 @@ puzzleBl.getPuzzlePrize = function(puzzleid, cb){
 
 
 puzzleBl.obtainPrize = function(puzzleid, appuseruid, recordid, recordip, prizeid, cb){
-	if(arguments.length !== 5) return cb(ARGUMENTS_WRONG);
+	if(arguments.length !== 6) return cb(ARGUMENTS_WRONG);
 
 	if(!/^\w{24,24}$/.test(puzzleid)){
 		return cb(PUZZLEID_ERROR)
@@ -160,7 +166,7 @@ puzzleBl.obtainPrize = function(puzzleid, appuseruid, recordid, recordip, prizei
 
 
 puzzleBl.getUserPrizeRecord = function(puzzleid, appuseruid, cb){
-	if(arguments.length !== 5) return cb(ARGUMENTS_WRONG);
+	if(arguments.length !== 3) return cb(ARGUMENTS_WRONG);
 
 	if(!/^\w{24,24}$/.test(puzzleid)){
 		return cb(PUZZLEID_ERROR)
@@ -174,6 +180,24 @@ puzzleBl.getUserPrizeRecord = function(puzzleid, appuseruid, cb){
 	sdkDl.request({
 			"url":'/'+options.version + puzzleBl.getUserPrizeRecordUrl, 
 			"method": puzzleBl.getUserPrizeRecordMethod, 
+			"host": options.widgetHost
+		}, data, options, cb);
+}
+
+puzzleBl.getUserPuzzleRecord = function(puzzleid, appuseruid, cb){
+	if(arguments.length !== 3) return cb(ARGUMENTS_WRONG);
+
+	if(!/^\w{24,24}$/.test(puzzleid)){
+		return cb(PUZZLEID_ERROR)
+	}
+	
+	var data = {
+		"puzzleid":puzzleid,
+		"appuseruid":appuseruid,
+	}
+	sdkDl.request({
+			"url":'/'+options.version + puzzleBl.getUserPuzzleRecordUrl, 
+			"method": puzzleBl.getUserPuzzleRecordMethod, 
 			"host": options.widgetHost
 		}, data, options, cb);
 }
