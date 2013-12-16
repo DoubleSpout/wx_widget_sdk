@@ -34,8 +34,6 @@ var puzzleBl = {
 	getUserPuzzleRecordUrl:'/getUserPuzzleRecord',
 	getUserPuzzleRecordMethod:'get',
 
-
-
 }
 
 puzzleBl.getPuzzle = function(puzzleid, appuserid, options, cb){
@@ -71,6 +69,7 @@ puzzleBl.answerPuzzle = function(puzzleid, appuserid, recordid, questionid, key,
 	if(!key){
 		return cb(KEY_ERROR)
 	}
+
 
 	var data = {
 		"puzzleid":puzzleid,
