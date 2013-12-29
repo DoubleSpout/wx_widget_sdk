@@ -92,6 +92,84 @@
 				//do something
 		})
 		
+##用户开始猜图的答题活动，将返回题目给用户：
+
+		sdkIns.getPuzzle(mpuzzleid, appuid, function(err,obj){
+				//do something
+		})
+
+##用户进行猜图活动，回答某一个题目：
+
+		sdkIns.answerPuzzle(puzzleid, uid, recordid, questionid, key, function(err,obj){
+				//do something
+		})
+
+##用户进行猜图活动，获得某一个题目的提示：
+
+		sdkIns.getQuesstionTips(puzzleid, recordid, questionid, tipspos, function(err,obj){
+				//do something
+		})
+
+##获得某次猜图活动的奖品：
+
+		sdkIns.getPuzzlePrize(puzzleid, uid, function(err,obj){
+				//do something
+		})
+
+##用户猜图游戏做完后，选择奖品获得奖品：
+
+		sdkIns.obtainPrize(puzzleid, uid, recordid, recordip, prizeid, function(err,obj){
+				//do something
+		})
+
+##用户猜图游戏做完后，获得用户的奖品记录：
+
+		sdkIns.getUserPrizeRecord(puzzleid, uid, function(err,obj){
+				//do something
+		})
+
+##获得用户猜图游戏的答题记录：
+
+		sdkIns.getUserPuzzleRecord(puzzleid, uid, function(err,obj){
+				//do something
+		})
+
+##获得某次抽奖活动的信息：
+
+		sdkIns.getLotteryInfo(lotteryid, uid, function(err,obj){
+				//do something
+		})
+
+##用户开始某次抽奖活动的抽奖：
+
+		sdkIns.startLottery(lotteryid, uid, recordip, function(err,obj){
+				//do something
+		})
+
+##获得用户的抽奖活动的得奖记录：
+
+		sdkIns.getLotteryRecord(lotteryid, uid, function(err,obj){
+				//do something
+		})
+
+##获得某次抽奖活动的奖品列表：
+
+		sdkIns.getLotteryPrize(lotteryid, uid, function(err,obj){
+				//do something
+		})
+
+##获得获得某次抽奖活动用户的抽奖次数，包括总次数和当前时间间隔次数：
+
+		sdkIns.userLotteryCount(lotteryid, uid, function(err,obj){
+				//do something
+		})
+
+##创建一个金数据表单：
+
+		sdkIns.createForm(formname, formdata, uid, function(err,obj){
+				//do something
+		})
+
 
 #测试命令：
 node ./test/run.js 
