@@ -21,6 +21,9 @@ var lotteryBl = {
 	getLotteryPrizeUrl:'/getLotteryPrize',
 	getLotteryPrizeMethod:'get',
 
+	userLotteryCountUrl:'/userLotteryCount',
+	userLotteryCountMethod:'get',
+
 }
 
 lotteryBl.getLotteryInfo = function(lotteryid, appuserid, options, cb){
@@ -97,6 +100,26 @@ lotteryBl.getLotteryPrize = function(lotteryid, appuserid, options, cb){
 			"host": options.widgetHost
 		}, data, options, cb);
 }
+
+lotteryBl.userLotteryCount = function(lotteryid, appuserid, options, cb){
+	if(arguments.length !== 4) return cb(ARGUMENTS_WRONG);
+
+	if(!/^\w{24,24}$/.test(lotteryid)){
+		return cb(LOTTERYID_ERROR)
+	}
+	var data = {
+		"lotteryid":lotteryid,
+		"appuserid":appuserid,
+	}
+	sdkDl.request({
+			"url":'/'+options.version + lotteryBl.userLotteryCountUrl, 
+			"method": lotteryBl.userLotteryCountMethod, 
+			"host": options.widgetHost
+		}, data, options, cb);
+
+	
+}
+
 
 
 module.exports = lotteryBl
